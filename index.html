@@ -1,109 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Cybersecurity Portfolio</title>
+    <title>Portfolio Cyber - Your Name</title>
     <style>
+        /* Fond noir, texte vert façon terminal */
         body {
             background-color: black;
-            color: green;
+            color: lime;
             font-family: "Courier New", monospace;
             text-align: center;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            overflow: hidden;
         }
+
         h1, h2 {
-            text-shadow: 0px 0px 10px green;
+            text-shadow: 0px 0px 10px lime;
         }
+
         a {
             color: lime;
             text-decoration: none;
         }
+
         a:hover {
             text-shadow: 0px 0px 10px lime;
         }
+
         .container {
             max-width: 800px;
             margin: auto;
-        }
-        .terminal {
-            background-color: rgba(0, 0, 0, 0.8);
-            border: 2px solid lime;
             padding: 20px;
+            position: relative;
+            z-index: 2; /* Place le contenu devant l'effet Matrix */
+            background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
             border-radius: 10px;
+            border: 1px solid lime;
+        }
+
+        .terminal {
             text-align: left;
-            overflow: hidden;
         }
-        .typing {
-            display: inline-block;
-            overflow: hidden;
-            white-space: nowrap;
-            animation: typing 2s steps(30, end) forwards;
-        }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+
+        /* Style du canvas pour l'effet Matrix */
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Derrière le contenu */
+            pointer-events: none; /* Ne bloque pas les clics */
         }
     </style>
 </head>
 <body>
+
+    <!-- Canvas pour l'effet Matrix -->
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- Contenu principal -->
     <div class="container">
-        <h1 class="typing">Welcome to My Cybersecurity Portfolio 🕶️</h1>
+        <h1>💻 Bienvenue sur mon Portfolio Cyber 🕶️</h1>
+
         <div class="terminal">
-            <h2>💻 About Me</h2>
-            <p>I'm a cybersecurity enthusiast passionate about ethical hacking, CTFs, and security research.</p>
-            
-            <h2>🔥 My Projects</h2>
+            <h2>🔍 À propos de moi</h2>
+            <p>Je suis un passionné de cybersécurité, spécialisé en ethical hacking et CTF.</p>
+
+            <h2>🔥 Projets</h2>
             <ul>
-                <li><a href="https://github.com/yourusername/cyber-recon">🔗 Cyber Recon Scanner</a> - A Python tool for information gathering.</li>
-                <li><a href="https://github.com/yourusername/CTF-writeups">🔗 CTF Write-ups</a> - Solved Capture The Flag challenges.</li>
+                <li><a href="https://github.com/yourusername/cyber-recon">🔗 Cyber Recon Scanner</a> - Un outil Python de reconnaissance.</li>
+                <li><a href="https://github.com/yourusername/CTF-writeups">🔗 CTF Write-ups</a> - Mes solutions aux challenges de cybersécurité.</li>
             </ul>
 
             <h2>🏆 Certifications</h2>
-            <p>✔ ISC2 CC </p>
+            <p>✔ ISC2 CC | ✔ Google Cybersecurity | ✔ TryHackMe Streak</p>
 
             <h2>📬 Contact</h2>
-            <p>📧 Email: demangep23@gmail.com</p>
-            <p>🔗 <a href="https://github.com/pierredemange">GitHub</a></p>
-            <p>🔗 <a href="https://www.linkedin.com/in/pierre-demange-893590323/">LinkedIn</a></p>
+            <p>📧 <a href="mailto:your@email.com">your@email.com</a></p>
+            <p>🔗 <a href="https://github.com/yourusername">GitHub</a></p>
+            <p>🔗 <a href="https://linkedin.com/in/yourprofile">LinkedIn</a></p>
         </div>
     </div>
-<canvas id="matrixCanvas"></canvas>
-<script>
-    var canvas = document.getElementById("matrixCanvas");
-    var ctx = canvas.getContext("2d");
 
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
+    <!-- Script pour l'effet Matrix -->
+    <script>
+        var canvas = document.getElementById("matrixCanvas");
+        var ctx = canvas.getContext("2d");
 
-    var matrix = "01";
-    matrix = matrix.split("");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-    var font_size = 16;
-    var columns = canvas.width / font_size;
-    var drops = [];
-    
-    for (var x = 0; x < columns; x++) drops[x] = 1;
+        var matrixChars = "01";
+        matrixChars = matrixChars.split("");
 
-    function drawMatrix() {
-        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        ctx.fillStyle = "#0F0";
-        ctx.font = font_size + "px Courier New";
-        
-        for (var i = 0; i < drops.length; i++) {
-            var text = matrix[Math.floor(Math.random() * matrix.length)];
-            ctx.fillText(text, i * font_size, drops[i] * font_size);
-            
-            if (drops[i] * font_size > canvas.height && Math.random() > 0.975) drops[i] = 0;
-            
-            drops[i]++;
+        var fontSize = 16;
+        var columns = canvas.width / fontSize;
+        var drops = [];
+
+        for (var x = 0; x < columns; x++) {
+            drops[x] = 1;
         }
-    }
 
-    setInterval(drawMatrix, 35);
-</script>
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#0F0"; // Couleur verte
+            ctx.font = fontSize + "px Courier New";
+
+            for (var i = 0; i < drops.length; i++) {
+                var text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            columns = canvas.width / fontSize;
+            drops = [];
+            for (var x = 0; x < columns; x++) {
+                drops[x] = 1;
+            }
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+        setInterval(drawMatrix, 35);
+    </script>
+
 </body>
 </html>
