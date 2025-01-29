@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Cyber - Your Name</title>
+    <title>Cybersecurity Portfolio - Your Name</title>
     <style>
-        /* Fond noir, texte vert façon terminal */
+        /* Black background, green terminal-style text */
         body {
             background-color: black;
             color: lime;
@@ -34,8 +34,8 @@
             margin: auto;
             padding: 20px;
             position: relative;
-            z-index: 2; /* Place le contenu devant l'effet Matrix */
-            background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+            z-index: 2; /* Ensures content is above the Matrix effect */
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
             border-radius: 10px;
             border: 1px solid lime;
         }
@@ -44,48 +44,48 @@
             text-align: left;
         }
 
-        /* Style du canvas pour l'effet Matrix */
+        /* Matrix Canvas Background */
         #matrixCanvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1; /* Derrière le contenu */
-            pointer-events: none; /* Ne bloque pas les clics */
+            z-index: 1; /* Puts the Matrix effect behind content */
+            pointer-events: none; /* Allows clicks through canvas */
         }
     </style>
 </head>
 <body>
 
-    <!-- Canvas pour l'effet Matrix -->
+    <!-- Matrix Effect Canvas -->
     <canvas id="matrixCanvas"></canvas>
 
-    <!-- Contenu principal -->
+    <!-- Main Content -->
     <div class="container">
-        <h1>💻 Bienvenue sur mon Portfolio Cyber 🕶️</h1>
+        <h1>💻 Welcome to My Cybersecurity Portfolio 🕶️</h1>
 
         <div class="terminal">
-            <h2>🔍 À propos de moi</h2>
-            <p>Je suis un passionné de cybersécurité, spécialisé en ethical hacking et CTF.</p>
+            <h2>🔍 About Me</h2>
+            <p>I am a cybersecurity enthusiast focused on ethical hacking, CTF challenges, and security research.</p>
 
-            <h2>🔥 Projets</h2>
+            <h2>🔥 Projects</h2>
             <ul>
-                <li><a href="https://github.com/yourusername/cyber-recon">🔗 Cyber Recon Scanner</a> - Un outil Python de reconnaissance.</li>
-                <li><a href="https://github.com/yourusername/CTF-writeups">🔗 CTF Write-ups</a> - Mes solutions aux challenges de cybersécurité.</li>
+                <li><a href="https://github.com/yourusername/cyber-recon">🔗 Cyber Recon Scanner</a> - A Python tool for reconnaissance.</li>
+                <li><a href="https://github.com/yourusername/CTF-writeups">🔗 CTF Write-ups</a> - My solutions for cybersecurity challenges.</li>
             </ul>
 
             <h2>🏆 Certifications</h2>
-            <p>✔ ISC2 CC | ✔ Google Cybersecurity | ✔ TryHackMe Streak</p>
+            <p>✔ ISC2 CC</p>
 
             <h2>📬 Contact</h2>
-            <p>📧 <a href="mailto:your@email.com">your@email.com</a></p>
-            <p>🔗 <a href="https://github.com/yourusername">GitHub</a></p>
-            <p>🔗 <a href="https://linkedin.com/in/yourprofile">LinkedIn</a></p>
+            <p>📧 <a href="mailto:demangep23@gmail.com">your@email.com</a></p>
+            <p>🔗 <a href="https://github.com/pierredemange">GitHub</a></p>
+            <p>🔗 <a href="https://linkedin.com/in/pierre-demange-893590323/">LinkedIn</a></p>
         </div>
     </div>
 
-    <!-- Script pour l'effet Matrix -->
+    <!-- Matrix Effect Script -->
     <script>
         var canvas = document.getElementById("matrixCanvas");
         var ctx = canvas.getContext("2d");
@@ -108,7 +108,7 @@
             ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = "#0F0"; // Couleur verte
+            ctx.fillStyle = "#0F0"; // Green color
             ctx.font = fontSize + "px Courier New";
 
             for (var i = 0; i < drops.length; i++) {
