@@ -57,3 +57,37 @@ a {
     color: cyan;
     text-decoration: none;
 }
+
+/* Centrage et espacement amélioré */
+.project-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.project-grid {
+    display: flex;
+    gap: 30px; /* Espace entre les cartes */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    width: 180px;
+    height: 180px;
+    background-color: #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    transform: scale(1.1);
+}
+
+/* Espacement général */
+section {
+    margin: 50px 0;
+}
