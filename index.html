@@ -20,10 +20,12 @@
 
     <section id="projects">
         <h2>Projets</h2>
-        <div class="project-grid">
-            <div class="project-card">Projet 1</div>
-            <div class="project-card">Projet 2</div>
-            <div class="project-card">Projet 3</div>
+        <div class="project-container">
+            <div class="project-grid">
+                <div class="project-card">Projet 1</div>
+                <div class="project-card">Projet 2</div>
+                <div class="project-card">Projet 3</div>
+            </div>
         </div>
     </section>
     
@@ -32,7 +34,10 @@
         <p>Retrouve-moi sur <a href="#">GitHub</a> ou <a href="#">LinkedIn</a>.</p>
     </section>
 
-    <script src="script.js"></script>
+    <script>
+        gsap.from(".animated-title", { opacity: 0, y: -50, duration: 1.5, ease: "power2.out" });
+        gsap.from(".subtitle", { opacity: 0, y: 20, duration: 1.8, delay: 0.5, ease: "power2.out" });
+        gsap.from(".project-card", { opacity: 0, stagger: 0.4, y: 50, duration: 1.5, ease: "power3.out" });
+    </script>
 </body>
 </html>
-
